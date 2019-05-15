@@ -58,7 +58,17 @@ describe("<Controls />", () => {
 
       expect(closeBtn).toBeEnabled();
     });
-    it("should toggle closed on click", () => {
+    it("cannot be enabled if the gate is locked and closed", () => {
+      const spy = jest.fn();
+      const { getByText } = render(
+        <Controls closed={true} locked={true} toggleClosed={spy} />
+      );
+      const button = getByText(/Open Gate/);
+      fireEvent.click(button);
+      expect(spy).not.toBeCalled();
+    });
+
+    it("should call toggle closed on click", () => {
       const spy = jest.fn();
       const { getByText } = render(<Controls toggleClosed={spy} />);
 
