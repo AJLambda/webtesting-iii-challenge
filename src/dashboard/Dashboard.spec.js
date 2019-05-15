@@ -5,6 +5,7 @@
 import React from "react";
 import renderer from "react-test-renderer"; // 1: install this npm module as a dev dependency
 import "react-testing-library/cleanup-after-each";
+import "jest-dom/extend-expect";
 import { render } from "react-testing-library";
 
 import Dashboard from "./Dashboard";
@@ -24,7 +25,7 @@ describe("<Dashboard />", () => {
       // snapshots are a JSON representation of the DOM tree
       expect(tree.toJSON()).toMatchSnapshot();
     });
-    it("should render controls and display component flags and buttons", () => {
+    it("should render default control buttons and display flags", () => {
       const { getByText } = render(<Dashboard />);
 
       getByText(/unlocked/i);

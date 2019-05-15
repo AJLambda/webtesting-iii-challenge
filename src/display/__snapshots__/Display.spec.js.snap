@@ -17,6 +17,23 @@ exports[`<Display /> The Component matches snapshot 1`] = `
 </div>
 `;
 
+exports[`<Display /> The entire Component matches snapshot 1`] = `
+<div
+  className="display panel"
+>
+  <div
+    className="led green-led"
+  >
+    Unlocked
+  </div>
+  <div
+    className="led green-led"
+  >
+    Open
+  </div>
+</div>
+`;
+
 exports[`<Display /> matches snapshot 1`] = `
 <div
   className="display panel"
