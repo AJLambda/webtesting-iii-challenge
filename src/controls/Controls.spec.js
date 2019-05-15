@@ -9,7 +9,7 @@ import React from "react";
 import renderer from "react-test-renderer"; // 1: install this npm module as a dev dependency
 import "react-testing-library/cleanup-after-each";
 import "jest-dom/extend-expect";
-import { render } from "react-testing-library";
+import { render, fireEvent } from "react-testing-library";
 
 import Controls from "./Controls";
 
@@ -57,6 +57,15 @@ describe("<Controls />", () => {
       const closeBtn = renderProps.getByText("Close Gate");
 
       expect(closeBtn).toBeEnabled();
+    });
+    it("should toggle closed on click", () => {
+      const spy = jest.fn();
+      const { getByText } = render(<Controls toggleClosed={spy} />);
+
+      const closeBtn = getByText("Close Gate");
+      fireEvent.click(closeBtn);
+
+      expect(spy).toHaveBeenCalledTimes(1);
     });
   });
   describe("The Open Gate Button", () => {
