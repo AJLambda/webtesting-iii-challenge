@@ -1,3 +1,6 @@
+///////////////////// DASHBOARD ////////////////////////
+// shows the controls and display
+
 // Test away
 import React from "react";
 import renderer from "react-test-renderer"; // 1: install this npm module as a dev dependency
